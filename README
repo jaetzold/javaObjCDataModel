@@ -1,1 +1,18 @@
-This file was created by IntelliJ IDEA 11.0.1 for binding GitHub repository
+* A simple data model conversion from Java to Objective-C
+
+Why?
+When handling the same data in both worlds it makes sense to deal with the same (or at least similar) names, types and functionality.
+
+What?
+At least for names and types a simple automated conversion from Java to Objective-C is possible with the @ObjCDataModel annotation that i describe here.
+
+What not?
+** A cross compiler or general java2objc transformation tool. Look into XMLVM (http://www.xmlvm.org/) for that. Here the goal focuses only on datamodel compatibility
+** As said: no functionality, only state name and types. And there only for the primitives, java.lang.Object, basic collection interfaces, the types annotated with @ObjCDataModel (of course)  and compositions/inheritance hierarchies of them.
+** Also support for tuning the Objective-C property definitions in regard to retain, copy asf. is currently not available but this is certainly doable if the need is there.
+** The generated Objective-C files should not be modified because such modifications cannot persist over new compilations of the original Java files. But i think by using the generated classes as a base and put additional code like methods in a subclass should cover many cases. Maybe a delegation mechanism could also help in this area  and this probably wouldn't be too hard to implement.
+** The immutable collection variants are used on the Objective-C side. This enables usage of the mutable ones but because they are subclasses. It probably would be nicer if maybe another annotation on the field could specify which variant should be generated.
+** Support to carry over constant values. But this would certainly be possible without much effort.
+
+Where?
+https://github.com/jaetzold/javaObjCDataModel
