@@ -6,7 +6,27 @@
 
     <groupId>jaetzold</groupId>
     <artifactId>javaObjCDataModel</artifactId>
-    <version>1.0</version>
+    <version>0.5</version>
 
-    
+    <packaging>jar</packaging>
+    <url>https://github.com/jaetzold/javaObjCDataModel</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                    <compilerArgument>-proc:none</compilerArgument>
+                </configuration>
+
+            </plugin>
+        </plugins>
+    </build>
+
 </project>
